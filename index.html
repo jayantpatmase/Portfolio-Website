@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jayant Patmase Portfolio</title>
+  <meta name="description" content="Portfolio of Jayant Patmase — Software Developer & B.E. IT student building scalable full-stack applications.">
+  <meta name="keywords" content="Jayant Patmase, Software Developer, Full-Stack Developer, Java, Python, React, C, MySQL">
+  <meta name="author" content="Jayant Patmase">
+  <meta name="theme-color" content="#09090c">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jayant Patmase — Software Developer">
+  <meta property="og:description" content="Software Developer • B.E. IT • Full-Stack Web Developer ">
+  <meta property="og:image" content="assets/profile.webp">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/logo.png">
+  <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Ambient Animated Background Canvas & Grid -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="ambient-grid"></div>
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- ==========================================================================
+       NAVIGATION: Floating Left Desktop Dock
+       ========================================================================== -->
+  <aside class="desktop-dock" id="desktop-dock" aria-label="Desktop Navigation">
+    <a href="#hero" class="dock-item active" data-nav="hero" aria-label="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span class="dock-tooltip">Home</span>
+    </a>
+
+    <a href="#about" class="dock-item" data-nav="about" aria-label="About Me">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      <span class="dock-tooltip">About Me</span>
+    </a>
+
+    <a href="#education" class="dock-item" data-nav="education" aria-label="Education & Academic Journey">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+        <path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/>
+      </svg>
+      <span class="dock-tooltip">Education</span>
+    </a>
+
+    <a href="#skills" class="dock-item" data-nav="skills" aria-label="Skills & Arsenal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+      <span class="dock-tooltip">Skills & Stack</span>
+    </a>
+
+    <a href="#projects" class="dock-item" data-nav="projects" aria-label="Featured Projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="14" x="2" y="7" rx="2" ry="2"/>
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+      </svg>
+      <span class="dock-tooltip">Projects</span>
+    </a>
+<a href="#contact" class="dock-item" data-nav="contact" aria-label="Contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+      <span class="dock-tooltip">Contact</span>
+    </a>
+</aside>
+
+  <!-- ==========================================================================
+       MOBILE HEADER & DRAWER
+       ========================================================================== -->
+  <header class="mobile-header">
+    <a href="#hero" class="nav-brand">
+      <div class="brand-monogram">JP</div>
+      <span class="brand-text">Jayant Patmase</span>
+      <span class="brand-badge"><span class="pulse-dot"></span>Open to Work</span>
+    </a>
+
+    <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Drawer Overlay & Slide Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div class="brand-monogram">JP</div>
+          <div>
+            <div style="font-weight:700;color:#fff;font-size:0.95rem;">Jayant Patmase</div>
+            <div style="font-size:0.75rem;color:#a1a1aa;">Software Developer</div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="mobile-drawer-links">
+        <li>
+          <a href="#hero" class="mobile-drawer-link" data-mobile-nav="hero">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#about" class="mobile-drawer-link" data-mobile-nav="about">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            About Me
+          </a>
+        </li>
+        <li>
+          <a href="#education" class="mobile-drawer-link" data-mobile-nav="education">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
+            Education
+          </a>
+        </li>
+        <li>
+          <a href="#skills" class="mobile-drawer-link" data-mobile-nav="skills">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Skills & Stack
+          </a>
+        </li>
+        <li>
+          <a href="#projects" class="mobile-drawer-link" data-mobile-nav="projects">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Projects
+          </a>
+        </li>
+<li>
+          <a href="#contact" class="mobile-drawer-link" data-mobile-nav="contact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <a href="assets/resume.pdf" target="_blank" class="btn btn-primary" style="width:100%;margin-bottom:0.75rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
+      </a>
+      <div style="font-size:0.75rem;color:#71717a;text-align:center;">
+        Maharashtra, India · 2026
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
+  <main id="main-content">
+
+    <!-- -----------------------------------------------------------------------
+         HERO SECTION
+         ----------------------------------------------------------------------- -->
+    <section id="hero" class="section-container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            SOFTWARE DEVELOPER • FULL-STACK WEB DEVELOPER
+
+
+          </div>
+
+          <h1 class="hero-title">
+            <!-- Hi, I'm  -->
+            <span class="text-gradient">Jayant Patmase</span>
+          </h1>
+
+          <div class="hero-role-wrapper">
+            <span>I am a</span>
+            <span class="hero-typed-text" id="hero-typewriter">Web Developer.</span>
+          </div>
+
+          <p class="hero-bio">
+            Currently in 7th semester pursuing B.E. Information Technology while exploring software architecture and full-stack web applications.  
+            
+            <!-- From discovering algorithms in 2021 to engineering full-stack platforms.
+            Currently pursuing <strong>B.E. in Information Technology (2024–2027)</strong> at <strong>PRMCEAM, Badnera-Amravti</strong>, with core foundations from <strong>Government Polytechnic Arvi (Diploma in CSE)</strong>. -->
+            
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              See My Work
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-accent">Get In Touch</a>
+<a href="assets/resume.pdf" target="_blank" class="btn btn-secondary" download>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Resume PDF
+            </a>
+          </div>
+
+          <!-- Social Icon Row -->
+          <div class="hero-socials">
+            <a href="https://linkedin.com/in/jayantpatmase" target="_blank" rel="noreferrer" class="social-icon-btn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.65 1.65 0 1 0 0-3.3 1.65 1.65 0 0 0 0 3.3m1.39 9.74v-8.37H5.07v8.37h2.78z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/jayantpatmase" target="_blank" rel="noreferrer" class="social-icon-btn" title="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+            <a href="mailto:jayantspatmase1@gmail.com" class="social-icon-btn" title="Send Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </a>
+</div>
+
+          <!-- Quick Stats Row -->
+          <div class="hero-stats">
+            
+            <div class="stat-box">
+              <!-- <div class="stat-number text-gradient-cyan">B.E.</div> -->
+              <div class="stat-number text-gradient-cyan">7th Sem</div>
+              <!-- <div class="stat-label">IT (2024–2027)</div> -->
+              <div class="stat-label">B.E. IT (2024–2027)</div>
+            </div>
+           
+            <div class="stat-box">
+              <div class="stat-number text-gradient">6+</div>
+              <div class="stat-label">Projects Built</div>
+            </div>
+           
+            <!-- <div class="stat-box">
+              <div class="stat-number text-gradient-emerald">SIH</div>
+              <div class="stat-label">Smart India Hackathon</div>
+            </div> -->
+            
+          </div>
+        </div>
+
+        <!-- Hero Right: Portrait Card Bento -->
+        <div class="hero-portrait-card">
+          <div class="portrait-glow-ring"></div>
+          <div class="portrait-frame">
+            <div class="portrait-image-wrapper">
+              <img src="assets/profile.webp" alt="Jayant Patmase - Software Developer" class="portrait-img">
+            </div>
+
+            <!-- Floating Micro-Badges -->
+            <div class="float-tag tag-pos-1">
+              <span class="tag-dot purple"></span>
+              Python · Flask · MySQL
+            </div>
+            <div class="float-tag tag-pos-2">
+              <span class="tag-dot cyan"></span>
+              Java 
+            </div>
+            <div class="float-tag tag-pos-3">
+              <span class="tag-dot emerald"></span>
+              React.js · JavaScript
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         ABOUT & JOURNEY SECTION
+         ----------------------------------------------------------------------- -->
+    <section id="about" class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow">ABOUT ME</div>
+        <h2 class="section-heading">Engineering solutions with<br><span class="text-gradient">curiosity &amp; architectural precision.</span></h2>
+        <p class="section-subtitle">
+          From first writing algorithmic loops in 2021 to engineering full-stack platforms.
+        </p>
+      </div>
+
+      <div class="about-bento">
+        <!-- Story & Philosophy Card -->
+        <div class="card-glass hover-glow-purple">
+          <div class="story-card-inner">
+            <h3 style="font-family:var(--font-heading);font-size:1.35rem;font-weight:700;color:#fff;">
+              The Mindset Behind the Code
+            </h3>
+
+            <p class="story-text">
+              <!-- "I don't just write code — I enjoy the transformation when an abstract requirement becomes a <strong>resilient, working product</strong>." -->
+              "I don't just write code — I enjoy the transformation when an abstract requirement becomes a resilient, working product."
+            </p>
+
+            <p class="story-text">
+              Every project reinforces the same engineering tenet: great software is never accidental. It requires deeply understanding user needs, crafting clean database schemas, decoupling APIs, and verifying edge-case performance under pressure.
+            </p>
+
+            <!-- Philosophy Workflow Nodes -->
+            <div class="philosophy-flow">
+              <div class="flow-node">
+                <div class="flow-icon">💡</div>
+                <div class="flow-title">01. Understand</div>
+                <div class="flow-desc">Requirements &amp; constraints</div>
+              </div>
+              <div class="flow-node">
+                <div class="flow-icon">✏️</div>
+                <div class="flow-title">02. Architect</div>
+                <div class="flow-desc">APIs, schemas &amp; state flow</div>
+              </div>
+              <div class="flow-node">
+                <div class="flow-icon">⚡</div>
+                <div class="flow-title">03. Build</div>
+                <div class="flow-desc">Scalable frontend &amp; backend</div>
+              </div>
+              <div class="flow-node">
+                <div class="flow-icon">🧪</div>
+                <div class="flow-title">04. Benchmark</div>
+                <div class="flow-desc">Security, latency &amp; tests</div>
+              </div>
+              <div class="flow-node">
+                <div class="flow-icon">🚀</div>
+                <div class="flow-title">05. Ship</div>
+                <div class="flow-desc">Deploy &amp; iterate cleanly</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         EDUCATION & ACADEMIC JOURNEY SECTION
+         ----------------------------------------------------------------------- -->
+    <section id="education" class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow">ACADEMIC JOURNEY</div>
+        
+        <!-- <h2 class="section-heading">Education &amp;<br><span class="text-gradient">Academic Milestones.</span></h2> -->
+
+        <h2 class="section-heading">Education<br></h2>
+
+
+        <p class="section-subtitle">
+          My formal educational pathway in Computer Science &amp; Engineering, from secondary school foundations to engineering degree.
+        </p>
+      </div>
+
+      <div class="education-grid">
+        <!-- 2024 - 2027: B.Tech in CSE -->
+        <div class="card-glass hover-glow-purple education-card">
+          <div class="edu-card-top">
+            <span class="edu-year-badge active">2024 — 2027</span>
+            <span class="edu-status-badge">Current Degree</span>
+          </div>
+          <h3 class="edu-degree">B.E. in IT</h3>
+          <div class="edu-sub">Information Technology</div>
+          <div class="edu-institute">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-purple);"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
+            PRMCEAM, Badnera-Amravati
+          </div>
+        </div>
+
+        <!-- 2021 - 2024: Diploma in CSE -->
+        <div class="card-glass hover-glow-cyan education-card">
+          <div class="edu-card-top">
+            <span class="edu-year-badge">2021 — 2024</span>
+            <span class="edu-status-badge completed">Completed</span>
+          </div>
+          <h3 class="edu-degree">Diploma in CSE</h3>
+          <div class="edu-sub">Computer Science &amp; Engineering</div>
+          <div class="edu-institute">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-cyan);"><line x1="2" y1="21" x2="22" y2="21"/><path d="M5 21V10"/><path d="M9 21V10"/><path d="M15 21V10"/><path d="M19 21V10"/><path d="M2 10h20"/><path d="m12 2 10 6H2l10-6z"/></svg>
+            Government Polytechnic, Arvi
+          </div>
+        </div>
+
+        <!-- 2021: Passed SSC -->
+        <div class="card-glass hover-glow-emerald education-card">
+          <div class="edu-card-top">
+            <span class="edu-year-badge">2021</span>
+            <span class="edu-status-badge passed">Passed</span>
+          </div>
+          <h3 class="edu-degree">Passed SSC</h3>
+          <div class="edu-sub">Secondary School Certificate</div>
+          <div class="edu-institute">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-emerald);"><path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4"/><path d="M18 22V6l-6-4-6 4v16"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><path d="M10 7h4"/><path d="M10 11h4"/></svg>
+            New English High School, Wardha
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SKILLS & TECHNICAL ARSENAL
+         ----------------------------------------------------------------------- -->
+    <section id="skills" class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow">TECHNICAL ARSENAL</div>
+        <h2 class="section-heading">Technologies learned through<br><span class="text-gradient">real things I built.</span></h2>
+        <p class="section-subtitle">
+          Every tool, language, and framework in this toolkit was mastered through hands-on system development, hackathons, and software projects.
+        </p>
+      </div>
+
+      <!-- Skills Cards Grid -->
+      <div class="skills-grid" id="skills-grid">
+            <!-- React.js -->
+            <div class="skill-card" data-category="frontend" data-skill-name="React.js">
+              <div class="skill-icon-wrap">⚛️</div>
+              <div class="skill-card-name">React.js</div>
+              <div class="skill-card-cat">Frontend</div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="skill-card" data-category="frontend systems" data-skill-name="JavaScript (ES6+)">
+              <div class="skill-icon-wrap">📜</div>
+              <div class="skill-card-name">JavaScript</div>
+              <div class="skill-card-cat">ES6+ / Async</div>
+            </div>
+
+            <!-- Java -->
+            <div class="skill-card" data-category="backend systems" data-skill-name="Java">
+              <div class="skill-icon-wrap">☕</div>
+              <div class="skill-card-name">Java</div>
+              <div class="skill-card-cat">OOP / Spring Boot</div>
+            </div>
+
+            <!-- Python -->
+            <div class="skill-card" data-category="backend systems" data-skill-name="Python">
+              <div class="skill-icon-wrap">🐍</div>
+              <div class="skill-card-name">Python</div>
+              <div class="skill-card-cat">Flask / Analytics</div>
+            </div>
+
+            <!-- Flask -->
+            <div class="skill-card" data-category="backend" data-skill-name="Flask">
+              <div class="skill-icon-wrap">🧪</div>
+              <div class="skill-card-name">Flask</div>
+              <div class="skill-card-cat">REST Microservices</div>
+            </div>
+
+            <!-- C Language -->
+            <div class="skill-card" data-category="systems" data-skill-name="C Language">
+              <div class="skill-icon-wrap">⚙️</div>
+              <div class="skill-card-name">C Language</div>
+              <div class="skill-card-cat">Systems &amp; Memory</div>
+            </div>
+
+            <!-- PHP -->
+            <div class="skill-card" data-category="backend" data-skill-name="PHP">
+              <div class="skill-icon-wrap">🐘</div>
+              <div class="skill-card-name">PHP</div>
+              <div class="skill-card-cat">Backend APIs</div>
+            </div>
+
+            <!-- MySQL -->
+            <div class="skill-card" data-category="backend tools" data-skill-name="MySQL">
+              <div class="skill-icon-wrap">🗄️</div>
+              <div class="skill-card-name">MySQL</div>
+              <div class="skill-card-cat">RDBMS &amp; Queries</div>
+            </div>
+
+            <!-- Tailwind & Bootstrap -->
+            <div class="skill-card" data-category="frontend" data-skill-name="Tailwind / Bootstrap">
+              <div class="skill-icon-wrap">🎨</div>
+              <div class="skill-card-name">Tailwind CSS</div>
+              <div class="skill-card-cat">Modern UI &amp; Grids</div>
+            </div>
+
+            <!-- REST APIs -->
+            <div class="skill-card" data-category="backend" data-skill-name="RESTful APIs">
+              <div class="skill-icon-wrap">🔌</div>
+              <div class="skill-card-name">REST APIs</div>
+              <div class="skill-card-cat">Contracts &amp; Auth</div>
+            </div>
+
+            <!-- Git & GitHub -->
+            <div class="skill-card" data-category="tools" data-skill-name="Git & GitHub">
+              <div class="skill-icon-wrap">🐙</div>
+              <div class="skill-card-name">Git &amp; GitHub</div>
+              <div class="skill-card-cat">Version Control</div>
+            </div>
+
+            <!-- Docker & Linux -->
+            <!-- <div class="skill-card" data-category="tools systems" data-skill-name="Docker & Linux">
+              <div class="skill-icon-wrap">🐳</div>
+              <div class="skill-card-name">Docker / Linux</div>
+              <div class="skill-card-cat">DevOps &amp; Tools</div>
+            </div> -->
+
+          </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         PROJECTS SHOWCASE SECTION
+         ----------------------------------------------------------------------- -->
+    <section id="projects" class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow">FEATURED WORK</div>
+        <h2 class="section-heading">Systems built through<br><span class="text-gradient">curiosity &amp; engineering rigor.</span></h2>
+        <p class="section-subtitle">
+          Explore production-grade full-stack systems, and low-level software utilities.
+        </p>
+      </div>
+<!-- Projects Grid -->
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- Project 1: E-commerce Platform -->
+        <article class="project-card" data-proj-cat="fullstack">
+          <div>
+            <div class="project-top-row">
+              <span class="project-num">01</span>
+              <span class="project-badge fullstack">Full-Stack Web App</span>
+            </div>
+            <h3 class="project-title">Full-Stack E-commerce Platform</h3>
+            <p class="project-desc">
+              An end-to-end shopping web application architected with a reactive React frontend and a customized PHP/MySQL backend handling transactions, inventory states, and admin oversight.
+            </p>
+          </div>
+          <div>
+            <div class="project-tech-row">
+              <span class="tech-chip">React.js</span>
+              <span class="tech-chip">PHP</span>
+              <span class="tech-chip">MySQL</span>
+              <span class="tech-chip">REST APIs</span>
+              <span class="tech-chip">Bootstrap</span>
+            </div>
+            <div class="project-footer-actions">
+              <a href="https://jayantpatmase.github.io/Ecommerce-project/" target="_blank" rel="noreferrer" class="btn btn-secondary btn-card-action">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+
+
+        <!-- Project 2: Heart Disease Prediction System -->
+        <article class="project-card" data-proj-cat="machine-learning fullstack">
+          <div>
+            <div class="project-top-row">
+              <span class="project-num">02</span>
+              <span class="project-badge machine-learning">Machine Learning</span>
+            </div>
+
+            <h3 class="project-title">Heart Disease Prediction System</h3>
+
+            <p class="project-desc">
+           Built a Flask-based machine learning application to predict heart disease risk using Logistic Regression, with input validation and an interactive web interface.
+            </p>
+          </div>
+
+          <div>
+            <div class="project-tech-row">
+              <span class="tech-chip">Python</span>
+              <span class="tech-chip">Flask</span>
+              <span class="tech-chip">Scikit-learn</span>
+              <span class="tech-chip">Pandas</span>
+              <span class="tech-chip">NumPy</span>
+              <span class="tech-chip">HTML</span>
+              <span class="tech-chip">CSS</span>
+              <span class="tech-chip">JavaScript</span>
+            </div>
+
+            <div class="project-footer-actions">
+              <a href="https://github.com/jayantpatmase/HDP" 
+                target="_blank"
+                rel="noreferrer"
+                class="btn btn-secondary btn-card-action">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+
+      
+
+        <!-- Project 3: Uber Analytics Dashboard -->
+        <article class="project-card" data-proj-cat="data-analytics">
+          <div>
+            <div class="project-top-row">
+              <span class="project-num">03</span>
+              <span class="project-badge data-analytics">Data Analytics</span>
+            </div>
+
+            <h3 class="project-title">Uber Analytics Dashboard</h3>
+
+            <p class="project-desc">
+              Created an interactive Power BI dashboard to analyze Uber trip data, identify booking trends, explore trip patterns, and visualize key performance indicators through charts and reports.
+            </p>
+          </div>
+
+          <div>
+            <div class="project-tech-row">
+              <span class="tech-chip">Power BI</span>
+              <!-- <span class="tech-chip">DAX</span> -->
+              <span class="tech-chip">Data Visualization</span>
+              <span class="tech-chip">Data Analysis</span>
+            </div>
+
+            <div class="project-footer-actions">
+              <a href="https://github.com/jayantpatmase/Ubar-D"
+                target="_blank"
+                rel="noreferrer"
+                class="btn btn-secondary btn-card-action">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+
+
+        <!-- Project 4: Samsung Sales Dashboard -->
+        <article class="project-card" data-proj-cat="data-analytics">
+          <div>
+            <div class="project-top-row">
+              <span class="project-num">04</span>
+              <span class="project-badge data-analytics">Data Analytics</span>
+            </div>
+
+            <h3 class="project-title">Samsung Sales Dashboard</h3>
+
+            <p class="project-desc">
+              Developed a Power BI dashboard to visualize Samsung sales data, monitor product performance, analyze revenue trends, and compare sales across categories using interactive reports and charts.
+            </p>
+          </div>
+
+          <div>
+            <div class="project-tech-row">
+              <span class="tech-chip">Power BI</span>
+              <!-- <span class="tech-chip">DAX</span> -->
+              <span class="tech-chip">Data Modeling</span>
+              <span class="tech-chip">Data Visualization</span>
+            </div>
+
+            <div class="project-footer-actions">
+              <a href="https://github.com/jayantpatmase/Samsung-SCD"
+                target="_blank"
+                rel="noreferrer"
+                class="btn btn-secondary btn-card-action">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
+              
+      
+
+        
+        <!-- Project 2: Heart Disease Prediction System -->
+        <!-- <article class="project-card" data-proj-cat="hackathon fullstack">
+          <div>
+            <div class="project-top-row">
+              <span class="project-num">02</span>
+              <span class="project-badge hackathon">Smart India Hackathon</span>
+            </div>
+            <h3 class="project-title">Airline Reservation System</h3>
+            <p class="project-desc">
+              An intelligent web-based flight search, seat allocation, and booking engine developed for the Smart India Hackathon to solve concurrent booking bottlenecks.
+            </p>
+          </div>
+          <div>
+            <div class="project-tech-row">
+              <span class="tech-chip">JavaScript</span>
+              <span class="tech-chip">PHP</span>
+              <span class="tech-chip">MySQL</span>
+              <span class="tech-chip">Concurrency</span>
+              <span class="tech-chip">SIH 2024</span>
+            </div>
+            <div class="project-footer-actions">
+              <a href="https://jayantpatmase.github.io/HDP/" target="_blank" rel="noreferrer" class="btn btn-secondary btn-card-action">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article> -->
+        
+
+        <!-- Project 3: High-Performance REST API Gateway -->
+        <!-- <article class="project-card" data-proj-cat="backend">
+          <div>
+            <div class="project-top-row">
+              <span class="project-num">03</span>
+              <span class="project-badge systems">Microservices Backend</span>
+            </div>
+            <h3 class="project-title">High-Performance REST API Gateway</h3>
+            <p class="project-desc">
+              A scalable microservices API router engineered with asynchronous request dispatching, rate limiting middleware, payload validation, and token authentication.
+            </p>
+          </div>
+          <div>
+            <div class="project-tech-row">
+              <span class="tech-chip">Java</span>
+              <span class="tech-chip">Microservices</span>
+              <span class="tech-chip">Token Auth</span>
+              <span class="tech-chip">REST APIs</span>
+              <span class="tech-chip">Rate Limiting</span>
+            </div>
+            <div class="project-footer-actions">
+              <a href="https://github.com/jayantpatmase" target="_blank" rel="noreferrer" class="btn btn-secondary btn-card-action">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article> -->
+
+        <!-- Project 4: Data Analytics Web Service -->
+        <!-- <article class="project-card" data-proj-cat="backend">
+          <div>
+            <div class="project-top-row">
+              <span class="project-num">04</span>
+              <span class="project-badge systems">Python Web API</span>
+            </div>
+            <h3 class="project-title">Data Analytics Web Service</h3>
+            <p class="project-desc">
+              An API service built with Python and Flask that ingests structured dataset inputs, runs data pipelines, extracts features, and outputs real-time predictive scores.
+            </p>
+          </div>
+          <div>
+            <div class="project-tech-row">
+              <span class="tech-chip">Python</span>
+              <span class="tech-chip">Flask</span>
+              <span class="tech-chip">REST API</span>
+              <span class="tech-chip">Data Pipelines</span>
+            </div>
+            <div class="project-footer-actions">
+              <a href="https://github.com/jayantpatmase" target="_blank" rel="noreferrer" class="btn btn-secondary btn-card-action">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article> -->
+
+        <!-- Project 5: System Security & Socket Protocol Suite -->
+        <!-- <article class="project-card" data-proj-cat="backend">
+          <div>
+            <div class="project-top-row">
+              <span class="project-num">05</span>
+              <span class="project-badge systems">Systems Security</span>
+            </div>
+            <h3 class="project-title">System Security &amp; Socket Suite</h3>
+            <p class="project-desc">
+              A low-level system utility built in C implementing data packet transmission protocols, secure checksum hashing mechanisms, and socket communications.
+            </p>
+          </div>
+          <div>
+            <div class="project-tech-row">
+              <span class="tech-chip">C Language</span>
+              <span class="tech-chip">Socket API</span>
+              <span class="tech-chip">Packet Integrity</span>
+              <span class="tech-chip">Cryptographic Hashing</span>
+            </div>
+            <div class="project-footer-actions">
+              <a href="https://github.com/jayantpatmase" target="_blank" rel="noreferrer" class="btn btn-secondary btn-card-action">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article> -->
+
+        <!-- Project 6: Syntax Parser & Code Analyzer -->
+        <!-- <article class="project-card" data-proj-cat="backend">
+          <div>
+            <div class="project-top-row">
+              <span class="project-num">06</span>
+              <span class="project-badge systems">Compiler Software</span>
+            </div>
+            <h3 class="project-title">Syntax Parser &amp; Code Analyzer</h3>
+            <p class="project-desc">
+              A foundational code processing compiler tool written in C that performs lexical analysis, token stream generation, and code structure evaluation.
+            </p>
+          </div>
+          <div>
+            <div class="project-tech-row">
+              <span class="tech-chip">C Language</span>
+              <span class="tech-chip">Lexical Analysis</span>
+              <span class="tech-chip">Token Streaming</span>
+              <span class="tech-chip">Compiler Theory</span>
+            </div>
+            <div class="project-footer-actions">
+              <a href="https://github.com/jayantpatmase" target="_blank" rel="noreferrer" class="btn btn-secondary btn-card-action">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article> -->
+
+        <!-- Project 7: Interactive Web Portal & UI System -->
+        <!-- <article class="project-card" data-proj-cat="fullstack">
+          <div>
+            <div class="project-top-row">
+              <span class="project-num">07</span>
+              <span class="project-badge fullstack">Design System</span>
+            </div>
+            <h3 class="project-title">Interactive Web Portal &amp; UI System</h3>
+            <p class="project-desc">
+              A modern web portal built with responsive UI components, dynamic layout rendering, fluid typography, and modular stylesheet architecture.
+            </p>
+          </div>
+          <div>
+            <div class="project-tech-row">
+              <span class="tech-chip">HTML5 / CSS3</span>
+              <span class="tech-chip">JavaScript</span>
+              <span class="tech-chip">Responsive Grid</span>
+              <span class="tech-chip">UI/UX Architecture</span>
+            </div>
+            <div class="project-footer-actions">
+              <a href="https://github.com/jayantpatmase" target="_blank" rel="noreferrer" class="btn btn-secondary btn-card-action">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article> -->
+
+      </div>
+    </section>
+
+<!-- -----------------------------------------------------------------------
+         CONTACT & CONNECT SECTION
+         ----------------------------------------------------------------------- -->
+    <section id="contact" class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow">LET'S CONNECT</div>
+        <h2 class="section-heading">Have a project, role, or idea?<br><span class="text-gradient">Let's build together.</span></h2>
+        <p class="section-subtitle">
+          Open to internships, software developer opportunities, open-source collaborations, and engineering discussions.
+        </p>
+      </div>
+
+      <!-- Contact CTA Buttons & Location (Matching Design) -->
+      <div class="contact-cta-wrapper">
+        <div class="contact-cta-row">
+          <!-- Connect on LinkedIn -->
+          <a href="https://linkedin.com/in/jayantpatmase" target="_blank" rel="noreferrer" class="contact-pill-btn btn-linkedin">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.65 1.65 0 1 0 0-3.3 1.65 1.65 0 0 0 0 3.3m1.39 9.74v-8.37H5.07v8.37h2.78z"/>
+            </svg>
+            <span>Connect on LinkedIn</span>
+          </a>
+
+          <!-- View GitHub -->
+          <a href="https://github.com/jayantpatmase" target="_blank" rel="noreferrer" class="contact-pill-btn btn-dark">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+            </svg>
+            <span>View GitHub</span>
+          </a>
+
+          <!-- Send an Email -->
+          <a href="mailto:jayantspatmase1@gmail.com" class="contact-pill-btn btn-dark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span>Send an Email</span>
+          </a>
+        </div>
+
+        <div class="contact-cta-row">
+          <!-- Download Resume -->
+          <a href="assets/resume.pdf" target="_blank" download class="contact-pill-btn btn-dark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Download Resume</span>
+          </a>
+        </div>
+
+        <!-- Location Subtitle (from reference image) -->
+        <p class="contact-location-note">
+          Based in Maharashtra, India (Open to Relocation) · Open to internships, software development roles and technical collaborations.
+        </p>
+      </div>
+    </section>
+
+        <!-- -----------------------------------------------------------------------
+         FOOTER
+         ----------------------------------------------------------------------- -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          Jayant Patmase — Software Developer · Maharashtra
+        </div>
+
+        <div class="footer-center">
+          <div class="footer-vertical-line"></div>
+          <span>SEE YOU IN THE NEXT PROJECT</span>
+        </div>
+
+        <div class="footer-right">
+          Built with curiosity &amp; code · 2026
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Script File -->
+  <script src="js/script.js"></script>
+</body>
+</html>
